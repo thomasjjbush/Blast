@@ -23,12 +23,10 @@ export default class Navigation extends Component {
 const styles = StyleSheet.create({
     
   navigation: {
-    bottom: 0,
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-    width: '25%',
-    alignItems: 'flex-end'
+    // alignItems: 'flex-end'
   }
 
 });
