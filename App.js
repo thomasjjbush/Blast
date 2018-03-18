@@ -1,29 +1,26 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { View, TextInput, StyleSheet } from 'react-native';
 
+import StatusBarBackground from './containers/StatusBar';
+import ContentContainer from './containers/ContentContainer'
 import Navigation from './containers/navigation';
-import StatusBarBackground from './containers/StatusBar'
-export default class App extends Component {
-    
+
+
+export default class App extends Component {    
     render() {
         return (
-      
             <View style={styles.container}>
-                <StatusBarBackground/>
-                <Navigation/>
+                <StatusBarBackground />
+                <ContentContainer />
+                <Navigation />
             </View>
-
         );
     }
 }
 
 const styles = StyleSheet.create({
-    
     container: {
         flex: 1,
-        backgroundColor: '#fff',
-        // alignItems: 'center',
-        // justifyContent: 'center',
+        backgroundColor: '#fff'
     }
-
 });
