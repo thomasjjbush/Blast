@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 
-import StatusBarBackground from './containers/StatusBar';
-import ContentContainer from './containers/ContentContainer'
-import Navigation from './containers/navigation';
+import StatusBarBackground from './components/StatusBar';
+import TabNavigator from './components/navigation';
 
 
 export default class App extends Component {    
@@ -11,8 +10,7 @@ export default class App extends Component {
         return (
             <View style={styles.container}>
                 <StatusBarBackground />
-                <ContentContainer />
-                <Navigation />
+                <TabNavigator />
             </View>
         );
     }
