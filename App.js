@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet } from 'react-native';
 
-import StatusBarBackground from './components/StatusBar';
+import StatusBarBackground from './components/screens/widgets/StatusBar';
 import TabNavigator from './components/navigation';
 
 
@@ -19,6 +19,6 @@ export default class App extends Component {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#fff'
+        backgroundColor: '#f1f1f2'
     }
 });

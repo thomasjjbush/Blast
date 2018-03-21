@@ -35,10 +35,14 @@ export default TabNavigator(
     tabBarOptions: {
       activeTintColor: '#d61d6b',
       inactiveTintColor: 'gray',
+      style: {
+        borderTopWidth: 0,
+        backgroundColor: 'white'
+      }
     },
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
-    animationEnabled: false,
-    swipeEnabled: false,
+    animationEnabled: true,
+    swipeEnabled: true,
   }
 );
