@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text, View } from 'react-native';
+import { Text, View, Image } from 'react-native';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
-import { Icon } from 'react-native-elements';
+// import { Icon } from 'react-native-elements';
+import Icon from 'react-native-vector-icons/FontAwesome';
 
 import HomeScreen from './screens/HomeScreen';
 import DiscoverScreen from './screens/DiscoverScreen';
@@ -12,9 +13,9 @@ import SettingsScreen from './screens/SettingsScreen';
 const icons = {
     Home: 'home',
     Discover: 'search',
-    Likes: 'favorite',
-    Blast: 'whatshot',
-    Settings: 'settings'
+    Likes: 'thumbs-up',
+    Blast: 'rocket',
+    Settings: 'sliders'
 };
 
 export default TabNavigator(
@@ -29,7 +30,7 @@ export default TabNavigator(
     navigationOptions: ({ navigation }) => ({
       tabBarIcon: ({ focused, tintColor }) => {
         const { routeName } = navigation.state;
-        return <Icon name={icons[routeName]} color={tintColor} />;
+        return <Icon name={icons[routeName]} size={30} color={tintColor} />;
       },
     }),
     tabBarOptions: {

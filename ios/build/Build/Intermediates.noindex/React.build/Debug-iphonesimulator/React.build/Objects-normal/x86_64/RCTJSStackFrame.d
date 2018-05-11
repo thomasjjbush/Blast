@@ -1,0 +1,7 @@
+dependencies: \
+  /Users/Aidan/Dev/Blast/node_modules/react-native/React/Base/RCTJSStackFrame.m \
+  /Users/Aidan/Dev/Blast/node_modules/react-native/React/Base/RCTJSStackFrame.h \
+  /Users/Aidan/Dev/Blast/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/Aidan/Dev/Blast/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/Aidan/Dev/Blast/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/Aidan/Dev/Blast/node_modules/react-native/React/Base/RCTUtils.h
