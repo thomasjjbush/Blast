@@ -49,6 +49,14 @@
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 		B033A6037BCA4C1E9CAF135E /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 09BBFE57917F46CB8762531A /* MaterialIcons.ttf */; };
 		CE18E8C088814595A9F7B673 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D68151F4B5524E478FBF321E /* Zocial.ttf */; };
+		DD6310F720A8CF5E00CD621A /* SpotifyAuth.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6310F420A8CF5D00CD621A /* SpotifyAuth.m */; };
+		DD6310F820A8CF5E00CD621A /* SpotifyLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DD6310F520A8CF5E00CD621A /* SpotifyLoginViewController.m */; };
+		DDB89B0E20A7204E00511268 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB89B0D20A7204E00511268 /* AVFoundation.framework */; };
+		DDB89B1020A7206700511268 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB89B0F20A7206700511268 /* SystemConfiguration.framework */; };
+		DDB89B1420A7547E00511268 /* SpotifyAudioPlayback.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB89B1120A7547D00511268 /* SpotifyAudioPlayback.framework */; };
+		DDB89B1520A7547E00511268 /* SpotifyMetadata.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB89B1220A7547D00511268 /* SpotifyMetadata.framework */; };
+		DDB89B1620A7547E00511268 /* SpotifyAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB89B1320A7547E00511268 /* SpotifyAuthentication.framework */; };
+		DDB89B1B20A8CBCA00511268 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB89B1A20A8CBCA00511268 /* WebKit.framework */; };
 		F416E59C0AF94DCEA6B68BF1 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AE85505E0BE34CB389020569 /* MaterialCommunityIcons.ttf */; };
 /* End PBXBuildFile section */
 
@@ -375,6 +383,16 @@
 		C201AC6841A44CCAAAFF1989 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
 		D5E68F241C654AEEB0AD17B9 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		D68151F4B5524E478FBF321E /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		DD6310CD20A8CF5D00CD621A /* SpotifyAuth.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpotifyAuth.h; path = "../node_modules/react-native-spotify/src/SpotifyAuth.h"; sourceTree = "<group>"; };
+		DD6310F420A8CF5D00CD621A /* SpotifyAuth.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpotifyAuth.m; path = "../node_modules/react-native-spotify/src/SpotifyAuth.m"; sourceTree = "<group>"; };
+		DD6310F520A8CF5E00CD621A /* SpotifyLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SpotifyLoginViewController.m; path = "../node_modules/react-native-spotify/src/SpotifyLoginViewController.m"; sourceTree = "<group>"; };
+		DD6310F620A8CF5E00CD621A /* SpotifyLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpotifyLoginViewController.h; path = "../node_modules/react-native-spotify/src/SpotifyLoginViewController.h"; sourceTree = "<group>"; };
+		DDB89B0D20A7204E00511268 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		DDB89B0F20A7206700511268 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		DDB89B1120A7547D00511268 /* SpotifyAudioPlayback.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAudioPlayback.framework; sourceTree = "<group>"; };
+		DDB89B1220A7547D00511268 /* SpotifyMetadata.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyMetadata.framework; sourceTree = "<group>"; };
+		DDB89B1320A7547E00511268 /* SpotifyAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SpotifyAuthentication.framework; sourceTree = "<group>"; };
+		DDB89B1A20A8CBCA00511268 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -390,19 +408,25 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB89B1B20A8CBCA00511268 /* WebKit.framework in Frameworks */,
+				DDB89B1020A7206700511268 /* SystemConfiguration.framework in Frameworks */,
+				DDB89B0E20A7204E00511268 /* AVFoundation.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
+				DDB89B1620A7547E00511268 /* SpotifyAuthentication.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
+				DDB89B1420A7547E00511268 /* SpotifyAudioPlayback.framework in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
+				DDB89B1520A7547E00511268 /* SpotifyMetadata.framework in Frameworks */,
 				38868AC3D98D4E80AB405C6B /* libRNVectorIcons.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,6 +545,10 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				13B07FB11A68108700A75B9A /* LaunchScreen.xib */,
+				DD6310CD20A8CF5D00CD621A /* SpotifyAuth.h */,
+				DD6310F420A8CF5D00CD621A /* SpotifyAuth.m */,
+				DD6310F620A8CF5E00CD621A /* SpotifyLoginViewController.h */,
+				DD6310F520A8CF5E00CD621A /* SpotifyLoginViewController.m */,
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = Blast;
@@ -552,6 +580,12 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DDB89B1A20A8CBCA00511268 /* WebKit.framework */,
+				DDB89B1120A7547D00511268 /* SpotifyAudioPlayback.framework */,
+				DDB89B1320A7547E00511268 /* SpotifyAuthentication.framework */,
+				DDB89B1220A7547D00511268 /* SpotifyMetadata.framework */,
+				DDB89B0F20A7206700511268 /* SystemConfiguration.framework */,
+				DDB89B0D20A7204E00511268 /* AVFoundation.framework */,
 				2D16E6891FA4F8E400B85C8A /* libReact.a */,
 			);
 			name = Frameworks;
@@ -1209,6 +1243,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD6310F720A8CF5E00CD621A /* SpotifyAuth.m in Sources */,
+				DD6310F820A8CF5E00CD621A /* SpotifyLoginViewController.m in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
@@ -1319,6 +1355,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
 				DEVELOPMENT_TEAM = MU32KWFWPE;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
@@ -1341,6 +1381,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = MU32KWFWPE;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",

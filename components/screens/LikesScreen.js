@@ -3,13 +3,13 @@ import { Text, View, StatusBar } from 'react-native';
 
 export default class LikesScreen extends Component {
   componentDidMount() {
-    this._navListener = this.props.navigation.addListener('didFocus', () => {
+    this.navListener = this.props.navigation.addListener('didFocus', () => {
       StatusBar.setBarStyle('dark-content');
     });
   }
 
   componentWillUnmount() {
-    this._navListener.remove();
+    this.navListener.remove();
   }
 
   render() {
