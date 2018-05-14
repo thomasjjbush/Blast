@@ -85,11 +85,12 @@ export default class LogInSuccess extends Component {
         <TouchableHighlight
           style={styles.button}
           onPress={() => {
-            SpotifyModule.playSpotifyURI('spotify:track:2Uvy6SkNqxvnH1W68dymxG', 0, 0.0, (error) => {
+            SpotifyModule.playSpotifyURI('spotify:user:1134189733:playlist:077FStAgr8Qq3uBD99DjiE', 0, 0.0, (error) => {
               if (error) {
                 console.error('Something went wrong');
               }
             });
+            SpotifyModule.metadata((res) => { console.log(res); });
           }}
         >
           <Text style={styles.btnSong}>

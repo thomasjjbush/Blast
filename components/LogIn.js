@@ -65,16 +65,17 @@ class LogIn extends Component {
           onPress={() => {
             // Start Auth process
             SpotifyModule.loggedIn((res) => {
-              console.log(res);
+              // console.log(res);
               if (!res) {
                 SpotifyModule.startAuthenticationFlow((error) => {
                     if (!error) {
-                      console.log(this.props.navigation.getParam('screen'));
+                      // console.log(this.props.navigation.getParam('screen'));
                     }
                       // alert(error);
                   });
               } else {
-                console.log(this.props.navigation.getParam('screen'));
+                this.props.logIn();
+                // console.log(this.props.navigation.getParam('screen'));
               }
             });
           }}
