@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native';
+import React from 'react';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 // import { Icon } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -11,11 +10,11 @@ import BlastScreen from './screens/BlastScreen';
 import SettingsScreen from './screens/SettingsScreen';
 
 const icons = {
-    Home: 'home',
-    Discover: 'search',
-    Likes: 'thumbs-up',
-    Blast: 'rocket',
-    Settings: 'sliders'
+  Home: 'home',
+  Discover: 'search',
+  Likes: 'thumbs-up',
+  Blast: 'rocket',
+  Settings: 'sliders',
 };
 
 export default TabNavigator(
@@ -24,11 +23,11 @@ export default TabNavigator(
     Discover: { screen: DiscoverScreen },
     Likes: { screen: LikesScreen },
     Blast: { screen: BlastScreen },
-    Settings: { screen: SettingsScreen }
+    Settings: { screen: SettingsScreen },
   },
   {
     navigationOptions: ({ navigation }) => ({
-      tabBarIcon: ({ focused, tintColor }) => {
+      tabBarIcon: ({ tintColor }) => {
         const { routeName } = navigation.state;
         return <Icon name={icons[routeName]} size={30} color={tintColor} />;
       },
@@ -38,12 +37,12 @@ export default TabNavigator(
       inactiveTintColor: 'gray',
       style: {
         borderTopWidth: 0,
-        backgroundColor: 'white'
-      }
+        backgroundColor: 'white',
+      },
     },
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
     animationEnabled: true,
     swipeEnabled: true,
-  }
+  },
 );
