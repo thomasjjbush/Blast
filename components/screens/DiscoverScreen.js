@@ -1,9 +1,16 @@
 import React, { Component } from 'react';
-import { Text, ScrollView, StatusBar, NativeModules } from 'react-native';
-import LogIn from '../LogIn';
-import LogInSuccess from '../LogInSuccess';
+import { Text, View, StatusBar, NativeModules, StyleSheet } from 'react-native';
+import LogIn from './modules/LogIn';
+import Discover from './modules/Discover';
 
 const { SpotifyModule } = NativeModules;
+
+const styles = StyleSheet.create({
+  Container: {
+    flex: 1,
+    marginTop: 20
+  }
+});
 
 export default class DiscoverScreen extends Component {
   constructor(props) {
@@ -34,18 +41,14 @@ export default class DiscoverScreen extends Component {
   render() {
     let content;
     if (this.state.isLoggedIn) {
-      content = <LogInSuccess />;
+      content = <Discover />;
     } else {
       content = <LogIn logIn={this.logIn} />;
     }
     return (
-      <ScrollView
-        centerContent
-        style={{ marginTop: 20 }}
-      >
-        <Text>Discover!</Text>
+      <View style={styles.Container}>
         {content}
-      </ScrollView>
+      </View>
     );
   }
 }

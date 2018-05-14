@@ -1,6 +1,5 @@
 import React from 'react';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
-// import { Icon } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import HomeScreen from './screens/HomeScreen';
@@ -43,6 +42,8 @@ export default TabNavigator(
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
     animationEnabled: true,
-    swipeEnabled: true,
+    swipeEnabled: false,
+    lazy: true,
+
   },
 );
