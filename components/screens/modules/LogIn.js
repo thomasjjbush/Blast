@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import { Text, Image, NativeModules, TouchableHighlight, View, StyleSheet } from 'react-native';
 import { withNavigation, NavigationActions } from 'react-navigation';
+import buttonImage from '../../../assets/img/login-button-mobile.png';
 
-import Discover from './Discover';
-import buttonImage from '../assets/img/login-button-mobile.png';
-import SettingsScreen from './screens/SettingsScreen';
 
 const { SpotifyModule } = NativeModules;
 
@@ -57,6 +55,7 @@ class LogIn extends Component {
     });
   }
   render() {
+    console.log(this.props);
     return (
       <View style={styles.container}>
         <TouchableHighlight

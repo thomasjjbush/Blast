@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
-// import { Icon } from 'react-native-elements';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 import HomeScreen from './screens/HomeScreen';
@@ -16,11 +15,12 @@ const icons = {
   Blast: 'rocket',
   Settings: 'sliders',
 };
-
-export default TabNavigator(
+export const Navigator = TabNavigator(
   {
-    Home: { screen: HomeScreen },
-    Discover: { screen: DiscoverScreen },
+    Home: { screen: props => <HomeScreen {...props} likedCards={props.screenProps.likedCards} /> },
+    Discover: {
+      screen: (props) => <DiscoverScreen {...props} onSwipeRight={props.screenProps.onSwipeRight} />,
+    },
     Likes: { screen: LikesScreen },
     Blast: { screen: BlastScreen },
     Settings: { screen: SettingsScreen },
@@ -43,6 +43,29 @@ export default TabNavigator(
     tabBarComponent: TabBarBottom,
     tabBarPosition: 'bottom',
     animationEnabled: true,
-    swipeEnabled: true,
+    swipeEnabled: false,
+    lazy: true,
   },
 );
+export default class Nav extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      likedCards: [],
+    };
+    this.onSwipeRight = this.onSwipeRight.bind(this);
+  }
+  onSwipeRight(card) {
+    this.setState(prevState => ({
+      likedCards: [...prevState.likedCards, card],
+    }));
+  }
+  render() {
+    return (
+      <Navigator screenProps={{ likedCards: this.state.likedCards, onSwipeRight: this.onSwipeRight }} />
+    );
+  }
+}
+
+
+// likedCards={this.state.likedCards} onSwipeRight={this.onSwipeRight
