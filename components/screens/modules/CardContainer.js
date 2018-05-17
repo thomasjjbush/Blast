@@ -11,21 +11,21 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
-  }
+    alignItems: 'center',
+  },
 });
 
 export default class CardContainer extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
-      cards: []
+      cards: [],
     };
+    this.handleYup = this.handleYup.bind(this);
   }
 
   componentDidMount() {
-    this.setState({cards: Data.cards});
+    this.setState({ cards: Data.cards });
     SpotifyModule.initialized((error) => {
       if (error) {
         console.warn(error);
@@ -33,25 +33,24 @@ export default class CardContainer extends Component {
     });
   }
 
-  handleYup (card) {
-    console.log(`Yup for ${card.name}`)
-  }
-  handleNope (card) {
-    console.log(`Nope for ${card.name}`)
+  handleYup(card) {
+    this.props.onSwipeRight(card);
   }
 
   render() {
+    console.log(this.state.likedCards);
     return (
-        <View style={styles.container}>
-          <SwipeCards
-            cards={this.state.cards}
-            renderCard={(cardData) => <SwipeCard {...cardData} />}
+      <View style={styles.container}>
+        <SwipeCards
+          cards={this.state.cards}
+          renderCard={cardData => <SwipeCard {...cardData} />}
             // renderNoMoreCards={() => <NoMoreCards />}
-            handleYup={this.handleYup}
-            handleNope={this.handleNope}
-          />
-        </View>
+          handleYup={this.handleYup}
+          handleNope={this.handleNope}
+          showYup={false}
+          showNope={false}
+        />
+      </View>
     );
   }
-
 }

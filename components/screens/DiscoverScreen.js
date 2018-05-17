@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import { Text, View, StatusBar, NativeModules, StyleSheet } from 'react-native';
 import LogIn from './modules/LogIn';
-import Discover from './modules/Discover';
+import CardContainer from './modules/CardContainer';
 
 const { SpotifyModule } = NativeModules;
 
 const styles = StyleSheet.create({
   Container: {
     flex: 1,
-    marginTop: 20
-  }
+    marginTop: 20,
+  },
 });
 
 export default class DiscoverScreen extends Component {
@@ -39,9 +39,10 @@ export default class DiscoverScreen extends Component {
   }
 
   render() {
+    console.log(this.props, 'Aidans a cunt');
     let content;
     if (this.state.isLoggedIn) {
-      content = <Discover />;
+      content = <CardContainer onSwipeRight={this.props.onSwipeRight} />;
     } else {
       content = <LogIn logIn={this.logIn} />;
     }

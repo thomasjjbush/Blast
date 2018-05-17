@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   card: {
     justifyContent: 'space-between',
@@ -20,28 +20,26 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.55,
     shadowRadius: 5,
     shadowColor: 'black',
-    shadowOffset: { height: 0, width: 0 }
+    shadowOffset: { height: 0, width: 0 },
   },
   albumArt: {
     width: 285,
     height: 285,
-    marginTop: 17
+    marginTop: 17,
   },
   artist: {
     color: '#d61d6b',
     fontSize: 20,
     fontWeight: 'bold',
-    paddingTop: 10  
+    paddingTop: 10,
   },
   songtitle: {
-    paddingBottom: 10  
-  }
+    paddingBottom: 10,
+  },
 });
 
 class SwipeCard extends Component {
   componentDidMount() {
-    console.log('oh no');
-    // this.play();
     SpotifyModule.initialized((error) => {
       console.warn(error);
     });
@@ -58,45 +56,27 @@ class SwipeCard extends Component {
   }
 
   render() {
-    const { key, albumArt, name, tracks } = this.props;
+    const {
+ key, albumArt, name, tracks 
+} = this.props;
+    // SpotifyModule.playSpotifyURI(`spotify:track:${tracks[0].link}`, 0, 0.0, (error) => {
+    //   console.log(error);
+    //   if (error) {
+    //     console.error('Something went wrong');
+    //   }
+    // });
     return (
       <View style={styles.container}>
         <View key={key} style={styles.card}>
-          <Image 
+          <Image
             style={styles.albumArt}
             source={{ uri: albumArt }}
           />
           <Text style={styles.artist}>{name}</Text>
           <Text style={styles.songtitle}>{tracks[0].name}</Text>
-          <CardInteractions startPlay={this.play} track={tracks[0].link}/>
+          <CardInteractions startPlay={this.play} track={tracks[0].link} />
         </View>
       </View>
-
-        // {<TouchableHighlight
-        //           style={styles.button}
-        //           onPress={() => {
-        //             SpotifyModule.playbackState((res) => {
-        //               if (res.isPlaying) {
-        //                 SpotifyModule.setIsPlaying(false, (err) => {
-        //                   if (err) {
-        //                     console.warn('Pause', err);
-        //                   }
-        //                 });
-        //               } else {
-        //                 SpotifyModule.setIsPlaying(true, (err) => {
-        //                   if (err) {
-        //                     console.warn('Play', err);
-        //                   }
-        //                 });
-        //               }
-        //             });
-        //           }}
-        //         >
-        //           <Text style={styles.btnText}>
-        //             Play/Pause
-        //           </Text>
-        //         </TouchableHighlight>}
-      // </View>
     );
   }
 }

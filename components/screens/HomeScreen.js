@@ -8,15 +8,31 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   row: {
-    backgroundColor: '#DCDCDC',
-    height: 200,
+    backgroundColor: '#FFF',
+    height: 194,
     marginBottom: 10,
   },
   title: {
     color: '#d61d6b',
-    fontSize: 30,
-    paddingBottom: 10,
+    fontSize: 24,
+    padding: 10,
     fontWeight: 'bold',
+  },
+  scrollView: {
+    marginHorizontal: 10,
+  },
+  likedCard: {
+    marginRight: 10,
+  },
+  albumArt: {
+    width: 114,
+    height: 114,
+  },
+  likedCardText: {
+    fontSize: 10,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    paddingTop: 5,
   },
 });
 
@@ -32,14 +48,16 @@ export default class HomeScreen extends Component {
   }
 
   render() {
-    const likes = [];
-    for (let i = 0; i < 25; i += 1) {
-      likes.push(<Image
-        key={i}
-        style={{ width: 100, height: 100 }}
-        source={{ uri: 'https://loremflickr.com/100/100/dog' }}
-      />);
-    }
+    const likes = this.props.likedCards.map(card => (
+      <View style={styles.likedCard} key={card.key}>
+        <Image
+          style={styles.albumArt}
+          source={{ uri: card.albumArt }}
+        />
+        <Text style={styles.likedCardText}>{card.name}</Text>
+      </View>
+    ));
+
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />
@@ -47,14 +65,14 @@ export default class HomeScreen extends Component {
         <View style={styles.row}>
           <Text style={styles.title}> Your likes
           </Text>
-          <ScrollView horizontal>
+          <ScrollView style={styles.scrollView} horizontal>
             {likes}
           </ScrollView >
         </View>
         <View style={styles.row}>
-          <Text style={styles.title}> Your super likes or whatever
+          <Text style={styles.title}> Your super likes
           </Text>
-          <ScrollView horizontal>
+          <ScrollView style={styles.scrollView} horizontal>
             {likes}
           </ScrollView >
         </View>
