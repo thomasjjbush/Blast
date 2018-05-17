@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { NativeModules, Text, TouchableHighlight, View, StyleSheet, Image, Dimensions } from 'react-native';
-import CardInteractions from './CardInteractions';
+import { NativeModules, Text, View, StyleSheet, Image, Dimensions } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import CardInteractions from './CardInteractions';
 
 const { SpotifyModule } = NativeModules;
 
@@ -40,13 +40,14 @@ const styles = StyleSheet.create({
 
 class SwipeCard extends Component {
   componentDidMount() {
+    this.play(this.props.tracks[0].link);
     SpotifyModule.initialized((error) => {
       console.warn(error);
     });
   }
 
   play(track) {
-    console.log('yo btich)');
+    console.log('yo btich)', this.props);
     SpotifyModule.playSpotifyURI(`spotify:track:${track}`, 0, 0.0, (error) => {
       console.log(error);
       if (error) {
@@ -57,14 +58,8 @@ class SwipeCard extends Component {
 
   render() {
     const {
- key, albumArt, name, tracks 
-} = this.props;
-    // SpotifyModule.playSpotifyURI(`spotify:track:${tracks[0].link}`, 0, 0.0, (error) => {
-    //   console.log(error);
-    //   if (error) {
-    //     console.error('Something went wrong');
-    //   }
-    // });
+      key, albumArt, name, tracks,
+    } = this.props;
     return (
       <View style={styles.container}>
         <View key={key} style={styles.card}>

@@ -37,6 +37,15 @@ export default class CardContainer extends Component {
     this.props.onSwipeRight(card);
   }
 
+  stopeet() {
+    console.log('fuck off this', this.props);
+    SpotifyModule.setIsPlaying(false, (err) => {
+      if (err) {
+        console.warn('Pause', err);
+      }
+    });
+  }
+
   render() {
     console.log(this.state.likedCards);
     return (
@@ -44,7 +53,7 @@ export default class CardContainer extends Component {
         <SwipeCards
           cards={this.state.cards}
           renderCard={cardData => <SwipeCard {...cardData} />}
-            // renderNoMoreCards={() => <NoMoreCards />}
+          renderNoMoreCards={this.stopeet}
           handleYup={this.handleYup}
           handleNope={this.handleNope}
           showYup={false}

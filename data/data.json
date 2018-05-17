@@ -1,109 +1,84 @@
 {
-	"cards":[
-		{
-			"key": "user-198283832929299202",
-			"name":"Jacob & Goliath 1",
-			"info": "Hi!, We're Jacob and Goliath - 3 homosexuals looking for a good time. You come here often?",
-			"albumArt":"https://i.scdn.co/image/ac7d557629162fac7c75cfda043f3517461378c2",
-			"tracks":[
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				},
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				},
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				}
-			]
-			
-		},
-		{
-			"key": "user-198283832929299203",
-			"name":"Jacob & Goliath 2",
-			"info": "Hi!, We're Jacob and Goliath - 3 homosexuals looking for a good time. You come here often?",
-			"albumArt":"https://i.scdn.co/image/ac7d557629162fac7c75cfda043f3517461378c2",
-			"tracks":[
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				},
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				},
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				}
-			]
-			
-		},
-		{
-			"key": "user-198283832929299204",
-			"name":"Jacob & Goliath 3",
-			"info": "Hi!, We're Jacob and Goliath - 3 homosexuals looking for a good time. You come here often?",
-			"albumArt":"https://i.scdn.co/image/ac7d557629162fac7c75cfda043f3517461378c2",
-			"tracks":[
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				},
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				},
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				}
-			]
-			
-		},
-		{
-			"key": "user-198283832929299205",
-			"name":"Jacob & Goliath",
-			"info": "Hi!, We're Jacob and Goliath - 3 homosexuals looking for a good time. You come here often?",
-			"albumArt":"https://i.scdn.co/image/ac7d557629162fac7c75cfda043f3517461378c2",
-			"tracks":[
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				},
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				},
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				}
-			]
-			
-		},
-		{
-			"key": "user-198283832929299206",
-			"name":"Jacob & Goliath",
-			"info": "Hi!, We're Jacob and Goliath - 3 homosexuals looking for a good time. You come here often?",
-			"albumArt":"https://i.scdn.co/image/ac7d557629162fac7c75cfda043f3517461378c2",
-			"tracks":[
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				},
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				},
-				{
-					"name":"Long Ago",
-					"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
-				}
-			]
-			
-		}
-	]
+"cards":[
+{
+"key": "user-198283832929299202",
+"name":"Jacob & Goliath 1",
+"info": "Hi!, We're Jacob and Goliath - 3 homosexuals looking for a good time. You come here often?",
+"albumArt":"https://i.scdn.co/image/ac7d557629162fac7c75cfda043f3517461378c2",
+"tracks":[
+{
+"name":"Long Ago",
+"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
+},
+{
+"name":"Long Ago",
+"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
+},
+{
+"name":"Long Ago",
+"link": "1o1B4xJ1kRgm6zqN9ER4Ox"
+}
+]
+},
+{
+"key": "user-198283832929299203",
+"name":"Biig Piig",
+"info": "Hi!, We're Jacob and Goliath - 3 homosexuals looking for a good time. You come here often?",
+"albumArt":"https://i.scdn.co/image/14468aa021bce9aba9f4f4b66b429c77d1c11aea",
+"tracks":[
+{
+"name":"You Know Better",
+"link": "6HevfDE6OHIwccTOgLu9bN"
+}
+]
+},
+{
+"key": "user-198283832929299204",
+"name":"Toto",
+"info": "Hi!, We're Jacob and Goliath - 3 homosexuals looking for a good time. You come here often?",
+"albumArt":"https://i.scdn.co/image/fba60f3ffb0d2ffc6ec078f670541d0c897ff85f",
+"tracks":[
+{
+"name":"Africa",
+"link": "2374M0fQpWi3dLnB54qaLX"
+}
+]
+},
+{
+"key": "user-198283832929299205",
+"name":"Bob Marley",
+"info": "Hi!, We're Jacob and Goliath - 3 homosexuals looking for a good time. You come here often?",
+"albumArt":"https://i.scdn.co/image/f471f206761429e9150c06a9f1927516e41e855e",
+"tracks":[
+{
+"name":"Could you be loved",
+"link": "61dXuN3VyqGOyOeMfJXIPh"
+}
+]
+},
+{
+"key": "user-198283832929299206",
+"name":"Blur",
+"info": "Hi!, We're Jacob and Goliath - 3 homosexuals looking for a good time. You come here often?",
+"albumArt":"https://i.scdn.co/image/306578e65b8d30fe58e6fd9e42d84d251414da29",
+"tracks":[
+{
+"name":"Song 2",
+"link": "3GfOAdcoc3X5GPiiXmpBjK"
+}
+]
+},
+{
+"key": "user-198283832929299207",
+"name":"The Beatles",
+"info": "Hi!, We're Jacob and Goliath - 3 homosexuals looking for a good time. You come here often?",
+"albumArt":"https://i.scdn.co/image/9cab76ad73ce2adbacbd118ebc632255ce7c1841",
+"tracks":[
+{
+"name":"Come together",
+"link": "0MKqeOVdZcUFGJvWpGCKbG"
+}
+]
+}
+]
 }

@@ -39,7 +39,6 @@ export default class DiscoverScreen extends Component {
   }
 
   render() {
-    console.log(this.props, 'Aidans a cunt');
     let content;
     if (this.state.isLoggedIn) {
       content = <CardContainer onSwipeRight={this.props.onSwipeRight} />;
