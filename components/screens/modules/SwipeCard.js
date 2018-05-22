@@ -40,16 +40,15 @@ const styles = StyleSheet.create({
 
 class SwipeCard extends Component {
   componentDidMount() {
-    this.play(this.props.tracks[0].link);
     SpotifyModule.initialized((error) => {
       console.warn(error);
     });
+    this.play(this.props.tracks[0].link);
   }
 
   play(track) {
-    console.log('yo btich)', this.props);
     SpotifyModule.playSpotifyURI(`spotify:track:${track}`, 0, 0.0, (error) => {
-      console.log(error);
+      console.log(error, this);
       if (error) {
         console.error('Something went wrong');
       }

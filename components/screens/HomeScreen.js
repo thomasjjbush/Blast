@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, StatusBar, ScrollView, Image, Modal, TouchableHighlight } from 'react-native';
+import { View, StyleSheet, Text, StatusBar, ScrollView, Image, TouchableHighlight } from 'react-native';
 
 import HomeScreenHero from './widgets/HomeScreenHero';
 import MoreInfoModal from './modules/MoreInfoModal';
@@ -60,7 +60,13 @@ export default class HomeScreen extends Component {
   }
   render() {
     const likes = this.props.likedCards.map(card => (
-      <TouchableHighlight onPress={this.setModal} key={card.key} modalName={card.name} modalCopy={card.info} style={styles.likedCard}>
+      <TouchableHighlight
+        onPress={this.setModal}
+        key={card.key}
+        modalName={card.name}
+        modalCopy={card.info}
+        style={styles.likedCard}
+      >
         <View>
           <Image
             style={styles.albumArt}
@@ -85,9 +91,7 @@ export default class HomeScreen extends Component {
         <View style={styles.row}>
           <Text style={styles.title}> Your super likes
           </Text>
-          <ScrollView style={styles.scrollView} horizontal>
-            {likes}
-          </ScrollView >
+          <ScrollView style={styles.scrollView} horizontal />
         </View>
       </View>
     );
