@@ -48,14 +48,9 @@ const styles = StyleSheet.create({
 
 class LogIn extends Component {
   componentWillMount() {
-    SpotifyModule.initWithCredentials('d37857c44487439686430b93237f9c9b', 'blast-login://callback', ['streaming'], (error) => {
-      if (error) {
-        console.log(`some ${error}`);
-      }
-    });
+    console.log('mounted');
   }
   render() {
-    console.log(this.props);
     return (
       <View style={styles.container}>
         <TouchableHighlight
@@ -63,17 +58,24 @@ class LogIn extends Component {
           onPress={() => {
             // Start Auth process
             SpotifyModule.loggedIn((res) => {
-              // console.log(res);
+              console.log(res);
               if (!res) {
                 SpotifyModule.startAuthenticationFlow((error) => {
+                  console.log('do u get in heeere', error);
                     if (!error) {
-                      // console.log(this.props.navigation.getParam('screen'));
+                      console.log('log in success');
+                      this.props.checkIfLoggedIn();
+                      // SpotifyModule.loggedIn((fff) => {
+                      //   console.log('ok now', fff);
+                      //   this.props.setLogInState(fff);
+                      // });
+                    } else {
+                      alert(error);
                     }
-                      // alert(error);
                   });
               } else {
-                this.props.logIn();
-                // console.log(this.props.navigation.getParam('screen'));
+                console.log('log in success');
+                this.props.checkIfLoggedIn();
               }
             });
           }}

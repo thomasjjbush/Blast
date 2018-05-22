@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { NativeModules } from 'react-native';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -7,6 +8,8 @@ import DiscoverScreen from './screens/DiscoverScreen';
 import LikesScreen from './screens/LikesScreen';
 import BlastScreen from './screens/BlastScreen';
 import SettingsScreen from './screens/SettingsScreen';
+
+const { SpotifyModule } = NativeModules;
 
 const icons = {
   Home: 'home',
@@ -19,7 +22,7 @@ export const Navigator = TabNavigator(
   {
     Home: { screen: props => <HomeScreen {...props} likedCards={props.screenProps.likedCards} /> },
     Discover: {
-      screen: (props) => <DiscoverScreen {...props} onSwipeRight={props.screenProps.onSwipeRight} />,
+      screen: props => <DiscoverScreen {...props} onSwipeRight={props.screenProps.onSwipeRight} />,
     },
     Likes: { screen: LikesScreen },
     Blast: { screen: BlastScreen },
@@ -55,6 +58,15 @@ export default class Nav extends Component {
     };
     this.onSwipeRight = this.onSwipeRight.bind(this);
   }
+
+  componentDidMount() {
+    SpotifyModule.initWithCredentials('d37857c44487439686430b93237f9c9b', 'blast-login://callback', ['streaming', 'user-read-currently-playing', 'user-read-playback-state', 'user-modify-playback-state'], (error) => {
+      console.log('init');
+      if (error) {
+        console.log(`some ${error}`);
+      }
+    });
+  }
   onSwipeRight(card) {
     this.setState(prevState => ({
       likedCards: [...prevState.likedCards, card],
@@ -62,7 +74,11 @@ export default class Nav extends Component {
   }
   render() {
     return (
-      <Navigator screenProps={{ likedCards: this.state.likedCards, onSwipeRight: this.onSwipeRight }} />
+      <Navigator screenProps={{
+        likedCards: this.state.likedCards,
+        onSwipeRight: this.onSwipeRight,
+      }}
+      />
     );
   }
 }
