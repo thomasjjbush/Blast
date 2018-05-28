@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, StatusBar, ScrollView, Image, Modal, TouchableHighlight } from 'react-native';
+import { View, StyleSheet, Text, StatusBar, ScrollView, Image, TouchableHighlight } from 'react-native';
 
 import HomeScreenHero from './widgets/HomeScreenHero';
 import MoreInfoModal from './modules/MoreInfoModal';
@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     marginHorizontal: 10,
-  }
+  },
 });
 
 export default class HomeScreen extends Component {
@@ -65,9 +65,7 @@ export default class HomeScreen extends Component {
         <View style={styles.row}>
           <Text style={styles.title}> Your super likes
           </Text>
-          <ScrollView style={styles.scrollView} horizontal>
-            {likes}
-          </ScrollView >
+          <ScrollView style={styles.scrollView} horizontal />
         </View>
       </View>
     );

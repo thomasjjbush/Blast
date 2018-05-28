@@ -18,35 +18,62 @@ export default class DiscoverScreen extends Component {
     this.state = {
       isLoggedIn: false,
     };
-    this.logIn = this.logIn.bind(this);
+    this.setLogInState = this.setLogInState.bind(this);
+    this.checkIfLoggedIn = this.checkIfLoggedIn.bind(this);
   }
   componentDidMount() {
-    this.logIn(); // check if logged in
+    this.checkIfLoggedIn(); // check if logged in
     this.navListener = this.props.navigation.addListener('didFocus', () => {
       StatusBar.setBarStyle('dark-content');
     });
+  }
+
+  componentWillReceiveProps() {
+    // this.logIn();
+    console.log('component will receive props');
+    console.log(this);
+  }
+
+  componentWillUpdate() {
+    // this.logIn();
+    console.log('component will update');
+    console.log(this);
+  }
+
+  componentDidUpdate() {
+    console.log('component did update');
+    console.log(this);
   }
 
   componentWillUnmount() {
     this.navListener.remove();
   }
 
-  logIn() {
+  setLogInState(loggedIn) {
+    this.setState({ isLoggedIn: loggedIn });
+  }
+
+  checkIfLoggedIn() {
+    console.log('in here sad cos so bad');
     SpotifyModule.loggedIn((res) => {
-      console.log(res);
-      this.setState({ isLoggedIn: res });
+      console.log('qqqq', res);
+      this.setLogInState(res);
     });
   }
 
+
   render() {
     let content;
+    // console.log('DiscoverScreen render, this.state.isLoggedIn: ', this.state.isLoggedIn);
+
     if (this.state.isLoggedIn) {
       content = <CardContainer onSwipeRight={this.props.onSwipeRight} />;
     } else {
-      content = <LogIn logIn={this.logIn} />;
+      content = <LogIn checkIfLoggedIn={this.checkIfLoggedIn} />;
     }
     return (
       <View style={styles.Container}>
+        {/* <Text>{this.state.isLoggedIn}</Text> */}
         {content}
       </View>
     );

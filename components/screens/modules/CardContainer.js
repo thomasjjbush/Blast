@@ -13,6 +13,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
+  noMoreCards: {
+    color: '#d61d6b',
+    fontSize: 40,
+    fontWeight: 'bold',
+  },
 });
 
 export default class CardContainer extends Component {
@@ -24,36 +29,38 @@ export default class CardContainer extends Component {
     this.handleYup = this.handleYup.bind(this);
   }
 
-  componentDidMount() {
+  componentWillMount() {
     this.setState({ cards: Data.cards });
     SpotifyModule.initialized((error) => {
       if (error) {
-        console.warn(error);
+        console.log(error);
       }
     });
+  }
+
+  onEnd() {
+    console.log(this.state);
+    SpotifyModule.setIsPlaying(false, (err) => {
+      if (err) {
+        console.log('Pause', err);
+      }
+    });
+    return (
+      <Text style={styles.noMoreCards}>Thats all folks!</Text>
+    );
   }
 
   handleYup(card) {
     this.props.onSwipeRight(card);
   }
 
-  stopeet() {
-    console.log('fuck off this', this.props);
-    SpotifyModule.setIsPlaying(false, (err) => {
-      if (err) {
-        console.warn('Pause', err);
-      }
-    });
-  }
-
   render() {
-    console.log(this.state.likedCards);
     return (
       <View style={styles.container}>
         <SwipeCards
           cards={this.state.cards}
           renderCard={cardData => <SwipeCard {...cardData} />}
-          renderNoMoreCards={this.stopeet}
+          renderNoMoreCards={this.onEnd}
           handleYup={this.handleYup}
           handleNope={this.handleNope}
           showYup={false}
