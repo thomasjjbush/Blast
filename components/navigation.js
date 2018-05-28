@@ -18,10 +18,8 @@ const icons = {
 export const Navigator = TabNavigator(
   {
     Home: { screen: props => <HomeScreen {...props} likedCards={props.screenProps.likedCards} /> },
-    Discover: {
-      screen: (props) => <DiscoverScreen {...props} onSwipeRight={props.screenProps.onSwipeRight} />,
-    },
-    Likes: { screen: LikesScreen },
+    Discover: { screen: (props) => <DiscoverScreen {...props} onSwipeRight={props.screenProps.onSwipeRight} /> },
+    Likes: { screen: (props) => <LikesScreen {...props} likedCards={props.screenProps.likedCards} /> },
     Blast: { screen: BlastScreen },
     Settings: { screen: SettingsScreen },
   },

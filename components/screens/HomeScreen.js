@@ -3,6 +3,7 @@ import { View, StyleSheet, Text, StatusBar, ScrollView, Image, Modal, TouchableH
 
 import HomeScreenHero from './widgets/HomeScreenHero';
 import MoreInfoModal from './modules/MoreInfoModal';
+import LikedArtists from './modules/LikedArtists';
 
 const styles = StyleSheet.create({
   container: {
@@ -21,20 +22,7 @@ const styles = StyleSheet.create({
   },
   scrollView: {
     marginHorizontal: 10,
-  },
-  likedCard: {
-    marginRight: 10,
-  },
-  albumArt: {
-    width: 114,
-    height: 114,
-  },
-  likedCardText: {
-    fontSize: 10,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    paddingTop: 5,
-  },
+  }
 });
 
 export default class HomeScreen extends Component {
@@ -60,15 +48,7 @@ export default class HomeScreen extends Component {
   }
   render() {
     const likes = this.props.likedCards.map(card => (
-      <TouchableHighlight onPress={this.setModal} key={card.key} modalName={card.name} modalCopy={card.info} style={styles.likedCard}>
-        <View>
-          <Image
-            style={styles.albumArt}
-            source={{ uri: card.albumArt }}
-          />
-          <Text style={styles.likedCardText}>{card.name}</Text>
-        </View>
-      </TouchableHighlight>
+      <LikedArtists onPress={this.setModal} key={card.key} image={card.albumArt} name={card.name} />
     ));
     return (
       <View style={styles.container}>
