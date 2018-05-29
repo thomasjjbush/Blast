@@ -90,7 +90,14 @@ export default class Nav extends Component {
         clientID: 'd37857c44487439686430b93237f9c9b',
         sessionUserDefaultsKey: 'SpotifySession',
         redirectURL: 'blast-login://callback',
-        scopes: ['user-read-private', 'playlist-read', 'playlist-read-private', 'streaming'],
+        scopes: [
+          'user-read-private',
+          'playlist-read',
+          'playlist-read-private',
+          'streaming',
+          'playlist-modify-public',
+          'playlist-modify-private',
+        ],
       };
       Spotify.initialize(spotifyOptions).then((loggedIn) => {
         // update UI state
@@ -120,6 +127,15 @@ export default class Nav extends Component {
     this.setState(prevState => ({
       likedCards: [...prevState.likedCards, card],
     }));
+    // this is rlly shit but will create a new playlist and add the track to it
+    Spotify.getMe().then((user) => {
+      console.log('asdadsads', user);
+      Spotify.sendRequest(`v1/users/${user.id}/playlists`, 'POST', { name: 'My Blast Playlist', public: false }, true).then((playlist) => {
+        console.log('playlists: ', playlist);
+        console.log(card);
+        Spotify.sendRequest(`v1/users/${user.id}/playlists/${playlist.id}/tracks`, 'POST', { uris: `spotify:track:${card.tracks[0].link}` }, false);
+      });
+    });
   }
 
   setLogInStatus(status) {
