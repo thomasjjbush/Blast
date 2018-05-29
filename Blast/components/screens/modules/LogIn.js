@@ -46,19 +46,14 @@ const styles = StyleSheet.create({
 });
 
 class LogIn extends Component {
-  componentWillMount() {
-    console.log('mounted');
-  }
   render() {
     return (
       <View style={styles.container}>
         <TouchableHighlight
           style={styles.button}
           onPress={() => {
-            // Start Auth process
             Spotify.login().then((status) => {
-              console.log(status);
-              this.props.setLogInStatus(setLogInStatus);
+              this.props.setLogInStatus(status);
             })
           }}
         >

@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     width: Dimensions.get('window').width,
     height: 200,
     overflow: 'hidden',
-    marginBottom: 10
+    marginBottom: 10,
   },
   hero: {
     position: 'absolute',

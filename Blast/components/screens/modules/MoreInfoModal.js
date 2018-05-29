@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import { Modal, Text, View, TouchableHighlight } from 'react-native';
 
 export default class MoreInfoModal extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <Modal
@@ -12,7 +9,7 @@ export default class MoreInfoModal extends Component {
         transparent={false}
         visible={this.props.check}
         onRequestClose={() => {
-            alert('Modal has been closed.');
+            console.log('Modal has been closed.');
           }}
       >
         <View style={{ marginTop: 22 }}>

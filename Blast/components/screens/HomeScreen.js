@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, StatusBar, ScrollView, Image, TouchableHighlight } from 'react-native';
-import Spotify from 'rn-spotify-sdk';
+import { View, StyleSheet, Text, StatusBar, ScrollView } from 'react-native';
 
 import HomeScreenHero from './widgets/HomeScreenHero';
 import MoreInfoModal from './modules/MoreInfoModal';
-import LikedCard from './modules/LikedCard'
+import LikedCard from './modules/LikedCard';
 
 const styles = StyleSheet.create({
   container: {
@@ -50,8 +49,8 @@ export default class HomeScreen extends Component {
 
   render() {
     const likes = this.props.likedCards.map(card => (
-       <LikedCard card={card}/>
-      ));
+      <LikedCard onPress={this.setModal} card={card} key={card.key} />
+    ));
     return (
       <View style={styles.container}>
         <StatusBar barStyle="light-content" />

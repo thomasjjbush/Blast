@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { NativeModules, TouchableOpacity, View, StyleSheet, Dimensions } from 'react-native';
+import { TouchableOpacity, View, StyleSheet, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Spotify from 'rn-spotify-sdk';
-import Data from '../../../data/data.json';
 
 const styles = StyleSheet.create({
   container: {
@@ -38,6 +37,7 @@ export default class CardInteractions extends Component {
 
   togglePlay() {
     Spotify.setPlaying(!this.state.isPlaying).then((error) => {
+      console.log(error);
       this.setState(prevState => ({
         isPlaying: !prevState.isPlaying,
       }));
@@ -46,11 +46,14 @@ export default class CardInteractions extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <TouchableOpacity style={styles.button} onPress={() => { this.props.startPlay(this.props.track); }}>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => { this.props.startPlay(this.props.track); }} // need to remove this
+        >
           <Icon name="step-backward" size={20} color="#000" />
         </TouchableOpacity>
         <TouchableOpacity style={[styles.button, styles.buttonPlay]} onPress={this.togglePlay}>
-          <Icon name={this.state.isPlaying ? "pause" : "play"} size={20} color="#000" />
+          <Icon name={this.state.isPlaying ? 'pause' : 'play'} size={20} color="#000" />
         </TouchableOpacity>
         <TouchableOpacity style={styles.button} onPress={this.onPress}>
           <Icon name="step-forward" size={20} color="#000" />

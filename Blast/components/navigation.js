@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { NativeModules } from 'react-native';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Spotify from 'rn-spotify-sdk';
@@ -19,24 +18,29 @@ const icons = {
 };
 export const Navigator = TabNavigator(
   {
-    Home: { 
-      screen: props => 
-        <HomeScreen {...props} 
-          spotifyInitialized={props.screenProps.spotifyInitialized} 
-          isLoggedIn={props.screenProps.isLoggedIn} 
-          likedCards={props.screenProps.likedCards} 
-        /> 
+    Home: {
+      screen: props =>
+        (<HomeScreen
+          {...props}
+          spotifyInitialized={props.screenProps.spotifyInitialized}
+          isLoggedIn={props.screenProps.isLoggedIn}
+          likedCards={props.screenProps.likedCards}
+        />),
     },
     Discover: {
-      screen: props => 
-        <DiscoverScreen {...props} 
-          spotifyInitialized={props.screenProps.spotifyInitialized} 
-          isLoggedIn={props.screenProps.isLoggedIn} 
-          onSwipeRight={props.screenProps.onSwipeRight} 
+      screen: props =>
+        (<DiscoverScreen
+          {...props}
+          spotifyInitialized={props.screenProps.spotifyInitialized}
+          isLoggedIn={props.screenProps.isLoggedIn}
+          onSwipeRight={props.screenProps.onSwipeRight}
           setLogInStatus={props.screenProps.setLogInStatus}
-        />
+        />),
     },
-    Likes: { screen: LikesScreen },
+    Likes: {
+      screen: props =>
+        <LikesScreen {...props} likedCards={props.screenProps.likedCards} />,
+    },
     Blast: { screen: BlastScreen },
     Settings: { screen: SettingsScreen },
   },
@@ -68,76 +72,68 @@ export default class Nav extends Component {
     this.state = {
       likedCards: [],
       isLoggedIn: false,
-      spotifyInitialized: false
+      spotifyInitialized: false,
     };
     this.onSwipeRight = this.onSwipeRight.bind(this);
     this.setLogInStatus = this.setLogInStatus.bind(this);
   }
 
-  componentDidMount()
-	{
+  componentDidMount() {
+    // move to spotify utils file pls if we can
     Spotify.isInitializedAsync().then((isInitialized) => {
-      this.setState({spotifyInitialized: isInitialized})
+      this.setState({ spotifyInitialized: isInitialized });
     });
     // initialize Spotify if it hasn't been initialized yet
-		if(!this.state.spotifyInitialized)
-		{
+    if (!this.state.spotifyInitialized) {
       // initialize spotify
-			var spotifyOptions = {
-				"clientID":"d37857c44487439686430b93237f9c9b",
-				"sessionUserDefaultsKey":"SpotifySession",
-				"redirectURL":"blast-login://callback",
-				"scopes":["user-read-private", "playlist-read", "playlist-read-private", "streaming"],
-			};
-			Spotify.initialize(spotifyOptions).then((loggedIn) => {
-				// update UI state
-				this.setState({spotifyInitialized: true});
-				// handle initialization
-				if(loggedIn)
-				{
+      const spotifyOptions = {
+        clientID: 'd37857c44487439686430b93237f9c9b',
+        sessionUserDefaultsKey: 'SpotifySession',
+        redirectURL: 'blast-login://callback',
+        scopes: ['user-read-private', 'playlist-read', 'playlist-read-private', 'streaming'],
+      };
+      Spotify.initialize(spotifyOptions).then((loggedIn) => {
+        // update UI state
+        this.setState({ spotifyInitialized: true });
+        // handle initialization
+        if (loggedIn) {
           // this.goToPlayer();
-          this.setState({isLoggedIn: true});
-          console.log('logged in')
-				}
-			}).catch((error) => {
-				Alert.alert("Error", error.message);
-			});
-		}
-		else
-		{
-			// update UI state
-			this.setState({
-        spotifyInitialized: true
-      }
-			);
+          this.setState({ isLoggedIn: true });
+        }
+      }).catch((error) => {
+        console.log(error);
+        // Alert.alert('Error', error.message); DO SOMETHING HERE
+      });
+    } else {
+      // update UI state
+      this.setState({
+        spotifyInitialized: true,
+      });
       // handle logged in
       Spotify.isLoggedInAsync().then((loggedIn) => {
-        this.setState({isLoggedIn: loggedIn})
-      })
-		}
+        this.setState({ isLoggedIn: loggedIn });
+      });
+    }
   }
 
   onSwipeRight(card) {
-    console.log('onswiperight', card)
     this.setState(prevState => ({
       likedCards: [...prevState.likedCards, card],
     }));
   }
 
   setLogInStatus(status) {
-    console.log('inside nav func', status);
-    this.setState({isLoggedIn: status})
+    this.setState({ isLoggedIn: status });
   }
 
   render() {
-    console.log('inside navigation, ', this.state.isLoggedIn);
     return (
       <Navigator screenProps={{
         likedCards: this.state.likedCards,
         onSwipeRight: this.onSwipeRight,
         spotifyInitialized: this.state.spotifyInitialized,
         isLoggedIn: this.state.isLoggedIn,
-        setLogInStatus: this.state.setLogInStatus
+        setLogInStatus: this.setLogInStatus,
       }}
       />
     );

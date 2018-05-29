@@ -11,19 +11,6 @@ const styles = StyleSheet.create({
 });
 
 export default class DiscoverScreen extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoggedIn: false,
-    };
-  }
-  componentDidMount() {
-    // this.checkIfLoggedIn(); // check if logged in
-    // this.navListener = this.props.navigation.addListener('didFocus', () => {
-    //   StatusBar.setBarStyle('dark-content');
-    // });
-  }
-
   componentWillUnmount() {
     this.navListener.remove();
   }
@@ -37,7 +24,6 @@ export default class DiscoverScreen extends Component {
     }
     return (
       <View style={styles.Container}>
-        {/* <Text>{this.state.isLoggedIn}</Text> */}
         {content}
       </View>
     );

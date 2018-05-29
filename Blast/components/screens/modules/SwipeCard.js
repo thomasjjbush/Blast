@@ -45,7 +45,6 @@ class SwipeCard extends Component {
     this.state = {
       metadata: {},
     };
-    // this.togglePlay = this.togglePlay.bind(this);
   }
 
   componentDidMount() {

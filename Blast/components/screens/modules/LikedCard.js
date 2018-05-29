@@ -1,9 +1,5 @@
 import React, { Component } from 'react';
-import { NativeModules, Text, TouchableHighlight, View, StyleSheet, Image, Dimensions } from 'react-native';
-import SwipeCards from 'react-native-swipe-cards';
-import CardInteractions from './CardInteractions';
-import Data from '../../../data/data.json';
-import SwipeCard from './SwipeCard';
+import { Text, TouchableHighlight, View, StyleSheet, Image } from 'react-native';
 import Spotify from 'rn-spotify-sdk';
 import get from 'lodash/get';
 
@@ -29,13 +25,10 @@ export default class LikedCard extends Component {
     this.state = {
       metadata: {},
     };
-    // this.handleYup = this.handleYup.bind(this);
   }
 
   componentWillMount() {
-    // console.log(this.props)
     Spotify.getTrack(this.props.card.tracks[0].link).then((metadata) => {
-      console.log(metadata);
       this.setState({ metadata });
     });
   }
@@ -43,23 +36,22 @@ export default class LikedCard extends Component {
   render() {
     const { card } = this.props;
     const { metadata } = this.state;
-    console.log(metadata);
     return (
-        <TouchableHighlight
+      <TouchableHighlight
         onPress={this.setModal}
         key={card.key}
         modalName={card.name}
         modalCopy={card.info}
         style={styles.likedCard}
-        >
-          <View>
-            <Image
-              style={styles.albumArt}
-              source={{ uri: get(metadata, ['album', 'images', '1', 'url'], '') }}
-              />
-            <Text style={styles.likedCardText}>{get(metadata,['artists', '0', 'name'], '')}</Text>
-          </View>
-        </TouchableHighlight>
-    )
+      >
+        <View>
+          <Image
+            style={styles.albumArt}
+            source={{ uri: get(metadata, ['album', 'images', '1', 'url'], '') }}
+          />
+          <Text style={styles.likedCardText}>{get(metadata, ['artists', '0', 'name'], '')}</Text>
+        </View>
+      </TouchableHighlight>
+    );
   }
 }
