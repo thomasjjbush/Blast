@@ -43,6 +43,35 @@ export default class CardInteractions extends Component {
       }));
     });
   }
+
+  // spotifyPlaylistCheck() {
+  //   console.log(this, 'heeere');
+  //   Spotify.getAuthAsync().then((auth) => {
+  //     console.log('auth: ', auth);
+  //     fetch('https://api.spotify.com/v1/me/playlists', {
+  //       method: 'GET',
+  //       headers: {
+  //         Authorization: `Bearer ${auth.accessToken}`,
+  //       },
+  //     }).then(res => res.json())
+  //       .catch(error => console.error('Error:', error))
+  //       .then(response => {
+  //         const playlistExists = response.items.some((playlist) => playlist.name === 'My Blast Playlist');
+  //         if (!playlistExists) {
+  //           console.log('playlist dont exist');
+  //           Spotify.getMe().then((user) => {
+  //             Spotify.sendRequest(`v1/users/${user.id}/playlists`, 'POST', { name: 'My Blast Playlist', public: false }, true).then((playlist) => {
+  //               console.log('create', playlist);
+  //             }).catch((error) => { console.log(error); });
+  //           });
+  //         }
+  //         else {
+  //           console.log('all good');
+  //         }
+  //       });
+  //   });
+  // }
+
   render() {
     return (
       <View style={styles.container}>
@@ -55,7 +84,7 @@ export default class CardInteractions extends Component {
         <TouchableOpacity style={[styles.button, styles.buttonPlay]} onPress={this.togglePlay}>
           <Icon name={this.state.isPlaying ? 'pause' : 'play'} size={20} color="#000" />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={this.onPress}>
+        <TouchableOpacity style={styles.button} onPress={this.spotifyPlaylistCheck}>
           <Icon name="step-forward" size={20} color="#000" />
         </TouchableOpacity>
       </View>

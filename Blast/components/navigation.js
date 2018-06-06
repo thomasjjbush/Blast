@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { AsyncStorage } from 'react-native';
 import { TabNavigator, TabBarBottom } from 'react-navigation';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import Spotify from 'rn-spotify-sdk';
@@ -73,6 +74,7 @@ export default class Nav extends Component {
       likedCards: [],
       isLoggedIn: false,
       spotifyInitialized: false,
+      playlistId: '',
     };
     this.onSwipeRight = this.onSwipeRight.bind(this);
     this.setLogInStatus = this.setLogInStatus.bind(this);
@@ -127,19 +129,48 @@ export default class Nav extends Component {
     this.setState(prevState => ({
       likedCards: [...prevState.likedCards, card],
     }));
-    // this is rlly shit but will create a new playlist and add the track to it
-    Spotify.getMe().then((user) => {
-      console.log('asdadsads', user);
-      Spotify.sendRequest(`v1/users/${user.id}/playlists`, 'POST', { name: 'My Blast Playlist', public: false }, true).then((playlist) => {
-        console.log('playlists: ', playlist);
-        console.log(card);
-        Spotify.sendRequest(`v1/users/${user.id}/playlists/${playlist.id}/tracks`, 'POST', { uris: `spotify:track:${card.tracks[0].link}` }, false);
+    AsyncStorage.getItem('@app:playlistId').then((playlistId) => {
+      Spotify.getMe().then((user) => {
+        console.log(`v1/users/${user.id}/playlists/${playlistId}/tracks`);
+        console.log(card.tracks[0].link);
+        Spotify.sendRequest(
+          `v1/users/${user.id}/playlists/${playlistId}/tracks`, 'POST',
+          { uris: `spotify:track:${card.tracks[0].link}` }, false,
+        ).then(res => console.log(res));
       });
     });
   }
 
   setLogInStatus(status) {
     this.setState({ isLoggedIn: status });
+    this.spotifyPlaylistCheck();
+  }
+
+  spotifyPlaylistCheck() {
+    Spotify.getAuthAsync().then((auth) => {
+      console.log('auth: ', auth, this);
+      fetch('https://api.spotify.com/v1/me/playlists', {
+        method: 'GET',
+        headers: {
+          Authorization: `Bearer ${auth.accessToken}`,
+        },
+      }).then(res => res.json())
+        .catch(error => console.error('Error:', error))
+        .then((response) => {
+          const playlistExists = response.items.some(playlist => playlist.name === 'My Blast Playlist');
+          if (!playlistExists) {
+            console.log('playlist dont exist');
+            Spotify.getMe().then((user) => {
+              Spotify.sendRequest(`v1/users/${user.id}/playlists`, 'POST', { name: 'My Blast Playlist', public: false }, true).then((playlist) => {
+                console.log('create', playlist);
+                AsyncStorage.setItem('@app:playlistId', playlist.id);
+              }).catch((error) => { console.log(error); });
+            });
+          } else {
+            console.log('playlist does exist');
+          }
+        });
+    });
   }
 
   render() {
