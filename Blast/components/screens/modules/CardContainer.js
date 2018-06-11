@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
-import { NativeModules, Text, TouchableHighlight, View, StyleSheet, Image, Dimensions } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 import SwipeCards from 'react-native-swipe-cards';
-import CardInteractions from './CardInteractions';
 import Data from '../../../data/data.json';
 import SwipeCard from './SwipeCard';
 
