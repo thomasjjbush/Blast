@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { NativeModules, Text, View, StyleSheet, Image, Dimensions } from 'react-native';
+import { Text, View, StyleSheet, Image, Dimensions } from 'react-native';
 import { withNavigation } from 'react-navigation';
 import Spotify from 'rn-spotify-sdk';
 import get from 'lodash/get';
+import { playTrack } from '../../../utils/spotify/spotify-utils';
 
 import CardInteractions from './CardInteractions';
 
@@ -49,15 +50,9 @@ class SwipeCard extends Component {
 
   componentDidMount() {
     Spotify.getTrack(this.props.tracks[0].link).then((metadata) => {
-      this.setState({metadata}, () => {
-        this.play(this.props.tracks[0].link);
+      this.setState({ metadata }, () => {
+        playTrack(this.props.tracks[0].link);
       });
-    });
-  }
-
-  play(track) {
-    Spotify.playURI(`spotify:track:${track}`, 0, 0).then((error) => {
-      console.log(error);
     });
   }
 
@@ -69,11 +64,11 @@ class SwipeCard extends Component {
         <View key={key} style={styles.card}>
           <Image
             style={styles.albumArt}
-            source={{ uri: get(album, ['images', '1','url'], '')}}
+            source={{ uri: get(album, ['images', '1', 'url'], '') }} // todo: use fallback image
           />
-          <Text style={styles.artist}>{get(album, ['artists','0','name'], '')}</Text>
+          <Text style={styles.artist}>{get(album, ['artists', '0', 'name'], '')}</Text>
           <Text style={styles.songtitle}>{name}</Text>
-          <CardInteractions startPlay={this.play} track={tracks[0].link} />
+          <CardInteractions startPlay={playTrack} track={tracks[0].link} />
         </View>
       </View>
     );

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StatusBar, NativeModules, StyleSheet } from 'react-native';
+import { View, StatusBar, StyleSheet } from 'react-native';
 import LogIn from './modules/LogIn';
 import CardContainer from './modules/CardContainer';
 
@@ -11,6 +11,12 @@ const styles = StyleSheet.create({
 });
 
 export default class DiscoverScreen extends Component {
+  componentDidMount() {
+    this.navListener = this.props.navigation.addListener('didFocus', () => {
+      StatusBar.setBarStyle('dark-content');
+    });
+  }
+
   componentWillUnmount() {
     this.navListener.remove();
   }

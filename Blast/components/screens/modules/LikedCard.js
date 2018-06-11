@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Text, TouchableHighlight, View, StyleSheet, Image } from 'react-native';
 import Spotify from 'rn-spotify-sdk';
 import get from 'lodash/get';
+import truncate from '../../../utils/string-utils';
 
 const styles = StyleSheet.create({
   likedCard: {
@@ -49,7 +50,7 @@ export default class LikedCard extends Component {
             style={styles.albumArt}
             source={{ uri: get(metadata, ['album', 'images', '1', 'url'], '') }}
           />
-          <Text style={styles.likedCardText}>{get(metadata, ['artists', '0', 'name'], '')}</Text>
+          <Text style={styles.likedCardText}>{truncate(get(metadata, ['artists', '0', 'name'], ''))}</Text>
         </View>
       </TouchableHighlight>
     );
